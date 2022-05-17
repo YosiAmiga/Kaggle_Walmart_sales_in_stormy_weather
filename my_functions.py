@@ -103,10 +103,7 @@ def changeTypes(df, columns=[], print_msg=True):
 
 
 def remove_columns(df, columns=[], print_msg=True):
-    """
-        data_frame 파일을 df 패러미터로 넣어준다.
-        columns에 제거하고싶은 columns를 리스트형식으로 넣어준다.
-    """
+
     for column in columns:
         df.drop(column, axis=1, inplace=True)
 
@@ -117,10 +114,7 @@ def remove_columns(df, columns=[], print_msg=True):
 
 
 def divideIntoNumericAndCategoricalVariables(df):
-    """
-        컬럼을 확인해서 numerical_features와 categorical_features을 나누는 작업을 해준다.
-        데이터 분석하기전에 확인하면 좋은 함수. 패러미터는 df를 넣어주면 된다.
-    """
+
     numerical_features = []
     categorical_features = []
     for f in df.columns:
@@ -204,10 +198,7 @@ def returnWeatherMissingValueDataByStation(df_):
 
 
 def classifyStoresByStation(df):
-    """
-        key데이터프레임을 넣어주게되면 같은 기상청을 공유하는 지점들을 따로 분할한 데이터프레임을 리턴한다.
-        패러미터 df는 key.csv를 넣어준다.
-    """
+
     dictionary = {}
     for i, station_nbr in enumerate(df["station_nbr"]):
         store_nbr = str(df["store_nbr"].loc[i])
