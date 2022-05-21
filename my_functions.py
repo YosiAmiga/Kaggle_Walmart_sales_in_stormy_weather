@@ -90,14 +90,7 @@ def changeTypes(df, columns=[], print_msg=True):
             process_float.append(column)
             result_df[column] = result_df[column].apply(changeTypeToFloat)
 
-    #     result_df = result_df.dropna()
 
-    #     if print_msg:
-    #         print("원본 데이터프레임 length : " + str(len(df)))
-    #         print("제거하고 싶은 컬럼 : " + str(list(columns)))
-    #         print("제거한 int 컬럼 : " + str(process_int))
-    #         print("제거한 float 컬럼 : " + str(process_float))
-    #         print("제거한 후 데이터프레임 length : " + str(len(result_df)))
 
     return result_df
 
@@ -134,12 +127,6 @@ def getStoreList(df, item_nbr, msg=True):
     df_ = df.copy()
     df_ = df_[df_["item_nbr"] == item_nbr]
     df_ = df_[df_["units"] != 0]
-    #     if msg:
-    #         print("팔린 개수가 0이상인 row 개수 : " + str(len(df_)))
-    #         print("총 팔린 개수 : " + str(df_["units"].sum()))
-    #         print(str(item_nbr) + "번 아이템이 팔린 스토어 개수 : " + str(len(list(df_["store_nbr"].unique()))))
-    #         print(str(item_nbr) + "번 아이템이 팔린 스토어 넘버 리스트 : " + str(list(df_["store_nbr"].unique())))
-    #     return list(df_["store_nbr"].unique())
     return len(list(df_["store_nbr"].unique()))
 
 

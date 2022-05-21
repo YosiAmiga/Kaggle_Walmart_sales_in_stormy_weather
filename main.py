@@ -501,8 +501,8 @@ if __name__ == '__main__':
     # df_test = final_df.loc[final_df['date'] > split_date]
 
     #the features to build the model
-    # train = final_df.loc[final_df['date'] <= split_date]
-    train = final_df.iloc[:300000,:]
+    train = final_df.loc[final_df['date'] <= split_date]
+    # train = final_df.iloc[:1750000,:]
     # X_train = train.drop(columns=['key_sum','station_nbr'])
 
     train['year'] = train['date'].dt.year
@@ -513,8 +513,8 @@ if __name__ == '__main__':
     y_train = train['key_sum']
 
 
-    # test = final_df.loc[final_df['date'] > split_date]
-    test =  final_df.iloc[300000:360000,:]
+    test = final_df.loc[final_df['date'] > split_date]
+    # test =  final_df.iloc[1750000:2500000,:]
     # X_test = test.drop(columns=['key_sum','station_nbr'])
 
     test['year'] = test['date'].dt.year
@@ -616,7 +616,7 @@ if __name__ == '__main__':
 
     # # get best estimator
     # best = grid_search.best_estimator_
-    #
+
     # # print best parameters
     # pd.DataFrame.from_dict(grid_search.best_params_, orient='index', columns=['Selected Value']).T
 
